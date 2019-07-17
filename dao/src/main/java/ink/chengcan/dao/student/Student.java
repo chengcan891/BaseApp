@@ -18,9 +18,11 @@ public class Student {
     String address;//家庭住址
     String schoolName;//学校名字
     String grade;//几年级
-    @Generated(hash = 1071002287)
+    String des;
+    @Generated(hash = 658383415)
     public Student(Long id, int studentNo, int age, String telPhone, String sex,
-            String name, String address, String schoolName, String grade) {
+            String name, String address, String schoolName, String grade,
+            String des) {
         this.id = id;
         this.studentNo = studentNo;
         this.age = age;
@@ -30,6 +32,7 @@ public class Student {
         this.address = address;
         this.schoolName = schoolName;
         this.grade = grade;
+        this.des = des;
     }
     @Generated(hash = 1556870573)
     public Student() {
@@ -87,6 +90,12 @@ public class Student {
     }
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+    public String getDes() {
+        return this.des;
+    }
+    public void setDes(String des) {
+        this.des = des;
     }
 
 }

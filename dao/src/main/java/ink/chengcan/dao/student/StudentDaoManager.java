@@ -7,9 +7,14 @@ import org.greenrobot.greendao.query.QueryBuilder;
 import java.util.List;
 
 import ink.chengcan.dao.DbManager;
-import ink.chengcan.dao.greenDao.db.StudentDao;
+import ink.chengcan.dao.StudentDao;
+
 
 public class StudentDaoManager {
+
+    public static void init(Context context) {
+        DbManager.getInstance(context).getDaoSession();
+    }
 
     /**
      * @param context

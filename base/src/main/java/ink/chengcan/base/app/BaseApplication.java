@@ -3,9 +3,7 @@ package ink.chengcan.base.app;
 import android.app.Activity;
 import android.app.Application;
 import android.content.res.Configuration;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
@@ -14,10 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import ink.chengcan.base.BuildConfig;
-import ink.chengcan.dao.greenDao.db.DaoMaster;
-import ink.chengcan.dao.greenDao.db.DaoSession;
-import ink.chengcan.dao.student.Student;
-import ink.chengcan.dao.student.StudentDaoManager;
 
 public abstract class BaseApplication extends Application {
 
@@ -51,7 +45,6 @@ public abstract class BaseApplication extends Application {
         }
 
     }
-
 
 
     protected abstract void initLogic();

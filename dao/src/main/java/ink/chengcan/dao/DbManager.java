@@ -3,8 +3,6 @@ package ink.chengcan.dao;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import ink.chengcan.dao.greenDao.db.DaoMaster;
-import ink.chengcan.dao.greenDao.db.DaoSession;
 
 public class DbManager {
 
@@ -21,7 +19,8 @@ public class DbManager {
 
     private DbManager(Context context) {
         this.context = context;
-        this.devOpenHelper = new DaoMaster.DevOpenHelper(context, DB_NAME);
+        this.devOpenHelper = new MyDevOpenHelper(context, DB_NAME, null);
+//        this.devOpenHelper = new DaoMaster.DevOpenHelper(context, DB_NAME);
 
     }
 
@@ -36,11 +35,22 @@ public class DbManager {
         return instance;
     }
 
+    /**
+     * 初始化变量，升级
+     *
+     * @param context
+     */
+    public static void init(Context context) {
+        getInstance(context).getDaoSession();
+    }
+
     public DaoMaster getDaoMaster() {
         if (null == daoMaster) {
             synchronized (DbManager.this) {
                 if (null == daoMaster) {
-                    daoMaster = new DaoMaster(getWritableDatabase());
+                    MyDevOpenHelper helper = new MyDevOpenHelper(context, DB_NAME, null);
+                    daoMaster = new DaoMaster(helper.getWritableDatabase());
+//                    daoMaster = new DaoMaster(getWritableDatabase());
                 }
             }
         }
@@ -59,16 +69,10 @@ public class DbManager {
     }
 
     public SQLiteDatabase getWritableDatabase() {
-        if (null == devOpenHelper) {
-            getInstance(context);
-        }
         return devOpenHelper.getWritableDatabase();
     }
 
     public SQLiteDatabase getReadableDatabase() {
-        if (null == devOpenHelper) {
-            getInstance(context);
-        }
         return devOpenHelper.getReadableDatabase();
     }
 
