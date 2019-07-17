@@ -1,5 +1,5 @@
-package ink.chengcan.base.route;
-
-public interface RouteKey {
-    String MESSAGE = "message";
-}
+//package ink.chengcan.base.route;
+//
+//public interface RouteKey {
+//    String MESSAGE = "message";
+//}

@@ -1,4 +1,4 @@
-package ink.chengcan.base.bus;
+package ink.chengcan.bus;
 
 import io.reactivex.Flowable;
 import io.reactivex.processors.FlowableProcessor;

@@ -1,4 +1,4 @@
-package ink.chengcan.baseapp.bus;
+package ink.chengcan.bus.test;
 
 public class TestEvent {
 
