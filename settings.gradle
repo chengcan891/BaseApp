@@ -1,1 +1,1 @@
-include ':app', ':base', ':bus', ':route', ':testbus', ':testroute'
+include ':app', ':base', ':bus', ':route', ':testbus', ':testroute', ':dao'

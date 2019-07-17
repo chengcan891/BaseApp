@@ -48,4 +48,5 @@ dependencies {
 
     api project(path: ':bus')
     api project(path: ':route')
+    api project(path: ':dao')
 }
