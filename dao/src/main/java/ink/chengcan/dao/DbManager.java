@@ -49,7 +49,11 @@ public class DbManager {
             synchronized (DbManager.this) {
                 if (null == daoMaster) {
                     MyDevOpenHelper helper = new MyDevOpenHelper(context, DB_NAME, null);
-                    daoMaster = new DaoMaster(helper.getWritableDatabase());
+                    if (ENCRYPTED) {
+                        daoMaster = new DaoMaster(helper.getEncryptedReadableDb("chengcan"));
+                    } else {
+                        daoMaster = new DaoMaster(helper.getWritableDatabase());
+                    }
 //                    daoMaster = new DaoMaster(getWritableDatabase());
                 }
             }
