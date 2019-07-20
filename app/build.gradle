@@ -20,7 +20,46 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 自定义输出配置
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        outputFileName = "BaseApp_${versionName}_${variant.productFlavors[0].name}.apk"
+//                        output.outputFile = new File(outputFile.parent, outputFileName)
+                    }
+                }
+            }
         }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    flavorDimensions "app"
+
+    productFlavors {
+        yingyongbao {
+            dimension "app"
+            manifestPlaceholders = [channel : "yingyongbao",
+                                    app_name: "yingyongbaobase"  //app名
+            ]
+
+        }
+        qihu360 {
+            applicationId defaultConfig.applicationId + ".qihu360"
+            dimension "app"
+            versionName "1.0." + versionTime()
+            manifestPlaceholders = [channel : "qihu360",
+                                    app_name: "qihu360base"  //app名
+            ]
+        }
+
+//        productFlavors.all{
+//            flavor -> flavor.manifestPlaceholders = [channel:name]
+//        }
     }
 }
 
@@ -34,6 +73,8 @@ dependencies {
 
     implementation project(path: ':testbus')
     implementation project(path: ':testroute')
+    implementation project(path: ':testpermission')
+    implementation project(path: ':testintercept')
 //    implementation project(path: ':base')
 
     implementation "io.reactivex.rxjava2:rxjava:2.2.6"
@@ -43,4 +84,8 @@ dependencies {
     // Replace with the latest version
     implementation 'com.alibaba:arouter-api:1.5.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+}
+
+def versionTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 }

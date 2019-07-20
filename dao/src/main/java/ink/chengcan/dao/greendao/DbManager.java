@@ -1,4 +1,4 @@
-package ink.chengcan.dao;
+package ink.chengcan.dao.greendao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class DbManager {
 
     //怎么加密
-    public static final boolean ENCRYPTED = true;
+    public static final boolean ENCRYPTED = false;
 
     private static final String DB_NAME = "student.db";
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">testBus</string>
+    <string name="testbus_app_name">testBus</string>
 </resources>

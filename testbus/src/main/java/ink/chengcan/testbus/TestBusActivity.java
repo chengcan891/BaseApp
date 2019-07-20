@@ -13,6 +13,7 @@ import ink.chengcan.bus.RxBus;
 import ink.chengcan.bus.test.TestEvent;
 import ink.chengcan.route.BusRoutePath;
 import ink.chengcan.route.CommonRouteKey;
+import ink.chengcan.route.TestInterceptor;
 import ink.chengcan.route.TestRoutePath;
 
 @Route(path = BusRoutePath.TEST_ROUTE)

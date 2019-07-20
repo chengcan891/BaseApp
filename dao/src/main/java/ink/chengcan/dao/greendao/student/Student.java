@@ -1,15 +1,14 @@
-package ink.chengcan.dao.student;
+package ink.chengcan.dao.greendao.student;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Unique;
 import org.greenrobot.greendao.annotation.Generated;
 
 @Entity
 public class Student {
     @Id(autoincrement = true)
     Long id;
-    @Unique
+//    @Unique
     int studentNo;//学号
     int age; //年龄
     String telPhone;//手机号

@@ -1,4 +1,4 @@
-package ink.chengcan.dao.student;
+package ink.chengcan.dao.greendao.student;
 
 import android.content.Context;
 
@@ -6,9 +6,16 @@ import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
 
-import ink.chengcan.dao.DbManager;
-import ink.chengcan.dao.StudentDao;
+import ink.chengcan.dao.greendao.DbManager;
+import ink.chengcan.dao.greendao.StudentDao;
 
+/**
+ * https://www.jianshu.com/p/53083f782ea2
+ *
+ * https://blog.csdn.net/qq_36699930/article/details/81540781
+ *
+ * https://www.jianshu.com/p/669279cda677
+ */
 
 public class StudentDaoManager {
 
